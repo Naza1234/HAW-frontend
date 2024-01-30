@@ -36,6 +36,17 @@ return response.json();
         `
         container.insertAdjacentHTML("beforeend",html)
     }
+
+
+    var selectionNav = document.querySelector(".nav_links select");
+
+selectionNav.addEventListener("change", () => {
+    if (selectionNav.value != "") {
+        window.location=`${winUrl}/page/${selectionNav.value}`
+    }
+});
+
+
 }
 )
 .catch((error) => {
@@ -44,14 +55,6 @@ console.error('Error:', error);
 
 
 
-
-var selectionNav = document.querySelector(".nav_links select");
-
-selectionNav.addEventListener("change", () => {
-    if (selectionNav.value != "") {
-        window.location=`${winUrl}/page/${selectionNav.value}`
-    }
-});
 
 
 
