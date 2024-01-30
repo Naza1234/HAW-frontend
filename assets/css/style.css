@@ -75,7 +75,7 @@ body{
     border-radius: 0;
 }
 .nav_links select option{
-    color: #fff;
+    color: #000;
     font-family: Inter;
     font-size: 16.778px;
     font-style: normal;
