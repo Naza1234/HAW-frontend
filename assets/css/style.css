@@ -43,10 +43,12 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 10px 2vw 10px 5vw;
-    height: 65px;
+    height: 75px;
     align-items: center;
 }
-
+.logo img{
+    width: 100px;
+}
 .nav_links{
     width: fit-content;
     display: flex;

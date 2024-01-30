@@ -1,5 +1,5 @@
-winUrl="http://127.0.0.1:5500"
-apiUrl=" http://localhost:3000"
+winUrl="https://equiauction.space"
+apiUrl="https://haw-server.onrender.com"
 
 const userId=localStorage.getItem("HAWebsiteUserKey")
 if (userId) {
@@ -43,6 +43,19 @@ console.error('Error:', error);
 });
 
 
+
+
+var selectionNav = document.querySelector(".nav_links select");
+
+selectionNav.addEventListener("change", () => {
+    if (selectionNav.value != "") {
+        window.location=`${winUrl}/page/${selectionNav.value}`
+    }
+});
+
+
+
+
 }
 
 
@@ -53,15 +66,6 @@ document.getElementsByClassName("bugger_lines")[0].addEventListener("click",()=>
 })
 
 
-
-
-var selectionNav = document.querySelector(".nav_links select");
-
-selectionNav.addEventListener("change", () => {
-    if (selectionNav.value != "") {
-        window.location=`${winUrl}/page/${selectionNav.value}`
-    }
-});
 
 
 
