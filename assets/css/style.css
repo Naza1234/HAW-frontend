@@ -45,6 +45,7 @@ body{
     padding: 10px 2vw 10px 5vw;
     height: 75px;
     align-items: center;
+    background-color: #c1c1c1d0;
 }
 .logo img{
     width: 100px;
@@ -212,7 +213,7 @@ line-height: 79.2px; /* 122.169% */
 
 
 .portfolio{
-    width: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -221,6 +222,7 @@ line-height: 79.2px; /* 122.169% */
 
 .portfolio .nav_for_portfolio{
     width: 100%;
+    padding:0vw 5vw ;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2061,7 +2063,11 @@ line-height: 79.2px; /* 122.169% */
     right: 5%;
 }
 
-
+@media screen and (max-width : 1240px){
+.trust{
+    max-width: 900px;
+}
+}
 @media screen and (max-width : 850px) {
     .nav{
         position: relative;
