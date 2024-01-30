@@ -22,7 +22,7 @@ form.addEventListener("submit",(e)=>{
   
       fetch(`${apiUrl}/user/users/login`, requestOptions)
       .then((response) => {
-        if (response.status != 201) {
+        if (response.status != 200) {
             errorIs=!errorIs
           // Handle the 400 Bad Request error
           console.error('Bad Request Error:', response);
