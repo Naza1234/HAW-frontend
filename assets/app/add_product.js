@@ -131,23 +131,16 @@ function uploadImg(id){
       
             fetch(`${apiUrl}/productImage/products/images/${id}`, requestOptions)
             .then((response) => {
-              if (response.status != 201) {
-                  errorIs=!errorIs
-                // Handle the 400 Bad Request error
-                console.error('Bad Request Error:', response);
-              }
               return response.json();
             })
             .then((data) => {
               // Handle the response data here
-              if (errorIs) {
-                 
-              }else{
-              
-                    uploadVideo(id)
-           
             
-              }
+                if (selectedFiles[i] === selectedFiles[selectedFiles.length-1]) {
+                    uploadVideo(id)
+                  }
+            
+              
             })
             .catch((error) => {
               // Handle any errors
@@ -195,7 +188,6 @@ function updateVideoPreviews() {
     }
 }
 
-uploadVideo("379eyhiuwqy89")
 
 
 function uploadVideo(id){
