@@ -19,6 +19,7 @@ return response.json();
 .then((data) => {
     uploadItem(data)
     document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove")
+    sendMessage(itemId)
 }
 )
 .catch((error) => {
@@ -74,7 +75,7 @@ function uploadItem(data){
   </section>
     `
     container.innerHTML=html
-    buttonClick()
+  
     fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
  }
 
@@ -109,7 +110,7 @@ function uploadItem(data){
             const element = data[i];
             populatePopup(element)
         }
-       
+        document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
     }
     )
     .catch((error) => {
@@ -132,7 +133,7 @@ function uploadItem(data){
 
   function sendMessage(id){
     
-    document.getElementsByClassName("auction_room")[0].addEventListener("click",()=>{
+    document.getElementsByClassName("runApproval_btn")[0].addEventListener("click",()=>{
         var parent=document.getElementsByClassName("input")[0]
         parent.classList.add("active_parent_to_button")
         var input=parent.getElementsByTagName("input")[0].value
