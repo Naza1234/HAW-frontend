@@ -167,7 +167,7 @@ var value
     var container = document.getElementsByClassName("chart_ul")[0]
      var html=`
      <li class="${data.userId===userId?"me":""}">
-                   ${data.message}
+                   ${data.amount}
             </li>
     
     `
