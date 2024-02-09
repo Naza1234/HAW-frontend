@@ -150,6 +150,7 @@ var buttons =document.querySelectorAll(".quick_nav span")
         })
         .then((data) => {
            console.log(data);
+           window.location.reload()
         }
         )
         .catch((error) => {
