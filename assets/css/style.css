@@ -337,7 +337,8 @@ line-height: 79.2px; /* 122.169% */
 }
 .portfolio .items .item .details button{
     display: flex;
-    width: 150px;
+    width: fit-content;
+    min-width: 150px;
     border-radius: 5px;
     height: 41.39px;
     padding: 8.5px 17.675px 9.89px 18px;
@@ -2581,6 +2582,9 @@ line-height: 79.2px; /* 122.169% */
         transform: translateX(0%);
     }
  }
+ .portfolio .items .item.hid{
+    display: none;
+}
  .winners .winners_items.hid,
  .product_listing .products .hid,
  .hid_data_stat,
