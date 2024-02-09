@@ -1,23 +1,27 @@
 
 
 
-    
-  fetch(`${apiUrl}/auctionWinner/${userId}`)
-  .then((response) => {
+fetch(`${apiUrl}/auctionWinner/${userId}`)
+.then((response) => {
   return response.json();
-  })
-  .then((data) => {
-       data.reverse()
-       for (let i = 0; i < (data.length>3? 3 :data.length) ; i++) {
-        const element = data[i];
-          uploadItem(element)
-       }
-       document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove")
+})
+.then((data) => {
+  // Process the fetched data
+  data.reverse();
+  for (let i = 0; i < (data.length > 3 ? 3 : data.length); i++) {
+    const element = data[i];
+    uploadItem(element);
   }
-  )
-  .catch((error) => {
+  // Hide loading UI
+  document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove");
+  
+  // Call the buttonClick function after data processing
+  buttonClick();
+})
+.catch((error) => {
   console.error('Error:', error);
-  });
+});
+
   
   
    
@@ -60,7 +64,7 @@ function uploadItem(data){
    
    `
    container.insertAdjacentHTML("beforeend",html)
-   buttonClick()
+
 }
 
 function buttonClick(){
@@ -91,6 +95,7 @@ function fetchPopupData(id,parent){
             const element = data[i];
             populatePopup(element)
         }
+        document.getElementsByClassName("chat")[0].classList.remove("hid")
     }
     )
     .catch((error) => {
@@ -102,7 +107,7 @@ function fetchPopupData(id,parent){
 
 function populatePopup(data){
     var container = document.getElementsByClassName("chart_ul")[0]
-     container.parentElement.parentElement.parentElement.classList.remove("hid")
+    document.getElementsByClassName("chat ")[0].classList.remove("hid")
      var html=`
      <li class="${data.userId===userId?"me":""}">
                    ${data.message}
