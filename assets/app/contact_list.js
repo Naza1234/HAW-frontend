@@ -8,7 +8,7 @@
         const element = data[i]
           uploadItem(element)
        }
-       document.getElementsByClassName("contact_list")[0].innerHTML=""
+       
        document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove")
   }
   )
