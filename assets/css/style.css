@@ -1790,6 +1790,7 @@ line-height: 79.2px; /* 122.169% */
     width: 95%;
     flex-direction: column;
     gap: 20px;
+    align-self: center;
     margin-bottom: 40px;
 }
 .contact_list .li{
