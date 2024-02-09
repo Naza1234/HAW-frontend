@@ -78,6 +78,7 @@ function buttonClick(){
            var parent=btn.parentElement
            parent.classList.add("active_parent_to_button")
            fetchPopupData(id,parent)
+           sendMessage(id)
        })
    }
 }
@@ -96,13 +97,13 @@ function fetchPopupData(id,parent){
             populatePopup(element)
         }
         document.getElementsByClassName("chat")[0].classList.remove("hid")
+       
     }
     )
     .catch((error) => {
     console.error('Error:', error);
     });
     
-    sendMessage(id)
 }
 
 function populatePopup(data){
