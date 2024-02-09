@@ -8,6 +8,7 @@
         const element = data[i]
           uploadItem(element)
        }
+       document.getElementsByClassName("contact_list")[0].innerHTML=""
        document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove")
   }
   )
@@ -18,7 +19,7 @@
   
    
 function uploadItem(data){
-   var container = document.getElementsByClassName("items")[0]
+   var container = document.getElementsByClassName("contact_list")[0]
 
    var html=`
             <li class="li">
