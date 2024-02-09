@@ -86,6 +86,7 @@ function fetchPopupData(id,parent){
     })
     .then((data) => {
         parent.classList.remove("active_parent_to_button")
+        document.getElementsByClassName("chart_ul")[0].innerHTML=""
         for (let i = 0; i < data.length; i++) {
             const element = data[i];
             populatePopup(element)

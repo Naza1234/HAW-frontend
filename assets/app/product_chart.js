@@ -59,7 +59,7 @@ function uploadItem(data){
       </span>
       <div class="bids">
         <div class="bid_scroll">
-          <ul>
+          <ul class="chart_ul">
            
           </ul>
         </div>
