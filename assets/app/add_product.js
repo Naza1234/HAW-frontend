@@ -1,6 +1,8 @@
 
 
 
+
+
 const form = document.getElementsByTagName("form")
 var inputs = document.getElementsByTagName("input")
 
@@ -11,7 +13,7 @@ form[0].addEventListener("submit",(e)=>{
     form[0].classList.add("active_parent_to_button")
      
     const formData= new FormData()
-      formData.append("userId",userId)
+      formData.append("userId","65b870c2586e9c4fa24c6961")
       formData.append("name",inputs[0].value)
       formData.append("height",inputs[1].value)
       formData.append("color",inputs[2].value)
@@ -78,7 +80,7 @@ function updateImagePreviews() {
 
 
 
-function uploadIm(id){
+function uploadImg(id){
     form[0].parentElement.parentElement.classList.add("hid")
     form[1].parentElement.parentElement.classList.remove("hid")
     var h1=document.querySelectorAll(".add_products .nav h1")

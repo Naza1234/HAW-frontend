@@ -1,7 +1,10 @@
 winUrl="https://equiauction.space"
-apiUrl="https://haw-server.onrender.com"
+// apiUrl="https://haw-server.onrender.com"
+apiUrl="http://localhost:3000"
 
 const userId=localStorage.getItem("HAWebsiteUserKey")
+// localStorage.removeItem("HAWebsiteUserKey")
+console.log(userId);
 if (userId) {
     document.getElementsByClassName("bugger")[0].innerHTML=`
     <a href="${winUrl}/page/cart.html">
