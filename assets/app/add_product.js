@@ -143,9 +143,9 @@ function uploadImg(id){
               if (errorIs) {
                  
               }else{
-                if (selectedFiles[i] === selectedFiles.length-1) {
+              
                     uploadVideo(id)
-                  }
+           
             
               }
             })
