@@ -27,7 +27,7 @@ console.log(document.getElementsByClassName("items")[0]);
             uploadItem(element,0)
           }
        }
-       document.getElementsByClassName("product_length")[0].getElementsByClassName("p_no")[0].innerHTML`
+       document.getElementsByClassName("product_length")[0].getElementsByClassName("p_no")[0].innerHTML=`
        ${data.length} <b>/pro
        </b>
        `
