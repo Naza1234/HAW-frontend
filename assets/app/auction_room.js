@@ -3,7 +3,7 @@ const currentURL = window.location.search;
  const searchParams= new URLSearchParams(currentURL)
  const itemId=searchParams.get("r")
 
-
+ var value
 
 if (!itemId) {
     window.location=winUrl
@@ -21,6 +21,7 @@ return response.json();
 })
 .then((data) => {
     uploadItem(data)
+    value=data.price
     document.getElementsByClassName("loading_data")[0].classList.add("loading_data_remove")
 }
 )
@@ -79,7 +80,8 @@ function uploadItem(data){
 
     `
     container.innerHTML=html
-    buttonClick()
+    // buttonClick()
+    sendMessage(itemId)
     fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
  }
 
@@ -88,11 +90,9 @@ function uploadItem(data){
     var button =  document.querySelectorAll(".runApproval_btn")[0]
   
         button.addEventListener("click",(e)=>{
-            var btn=e.target
-            document.getElementsByClassName("auction_room")[0].classList.add("active_parent_to_button")
-            var amount=btn.parentElement.getElementsByTagName("input")[0].value
-            sendAuction(amount)
-          
+            // var btn=e.target
+            // document.getElementsByClassName("auction_room")[0].classList.add("active_parent_to_button")
+            
         })
   
  }
@@ -135,7 +135,7 @@ function sendAuction(amount){
 
 
 
-var value
+
  function fetchPopupData(id,parent){
    fetch(`${apiUrl}/auction/auctions/byId/${id}`)
    .then((response) => {
@@ -150,8 +150,6 @@ var value
         }
       if (data.length>0) {
         value=data[data.length-1].amount
-      }else{
-        value=0
       }
     }
     )
@@ -174,55 +172,55 @@ var value
   }
 
 
-  // function sendMessage(id){
+  function sendMessage(id){
     
-  //   document.getElementsByClassName("auction_room")[0].addEventListener("click",()=>{
-  //       var parent=document.getElementsByClassName("input")[0]
-  //       parent.classList.add("active_parent_to_button")
-  //       var input=parent.getElementsByTagName("input")[0].value
-  //       if(input>value){
-  //           const params={
-  //            userId:userId,
-  //            productId:id,
-  //            amount:input
-  //           }
+    document.getElementsByClassName("runApproval_btn")[0].addEventListener("click",()=>{
+        var parent=document.getElementsByClassName("input")[0]
+        parent.classList.add("active_parent_to_button")
+        var input=parent.getElementsByTagName("input")[0].value
+        if(input>value){
+            const params={
+             userId:userId,
+             productId:id,
+             amount:input
+            }
         
-  //           const requestOptions = {
-  //               method: 'POST',
-  //               headers: {
-  //                   'Content-Type': 'application/json',
-  //                 },
-  //                body: JSON.stringify(params),
-  //             };
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+                 body: JSON.stringify(params),
+              };
              
           
-  //             fetch(`${apiUrl}/auction/auctions`, requestOptions)
-  //             .then((response) => {
-  //               if (response.status != 201) {
-  //                   errorIs=!errorIs
-  //                 // Handle the 400 Bad Request error
-  //                 console.error('Bad Request Error:', response);
-  //               }
-  //               return response.json();
-  //             })
-  //             .then((data) => {
-  //               // Handle the response data here
-  //               fetchPopupData(id,document.getElementsByClassName("auction_room")[0])
-  //             })
-  //             .catch((error) => {
-  //               // Handle any errors
-  //               console.error('Error:', error);
+              fetch(`${apiUrl}/auction/auctions`, requestOptions)
+              .then((response) => {
+                if (response.status != 201) {
+                    errorIs=!errorIs
+                  // Handle the 400 Bad Request error
+                  console.error('Bad Request Error:', response);
+                }
+                return response.json();
+              })
+              .then((data) => {
+                // Handle the response data here
+                fetchPopupData(id,document.getElementsByClassName("auction_room")[0])
+              })
+              .catch((error) => {
+                // Handle any errors
+                console.error('Error:', error);
                 
-  //             });
-  //       }
-  //    })
+              });
+        }
+     })
      
-  //   }
+    }
     
 
 
 
-    fetch(`${apiUrl}videos/products/videos/${itemId}`)
+    fetch(`${apiUrl}/videos/products/videos/${itemId}`)
     .then((response) => {
     return response.json();
     })
