@@ -52,7 +52,7 @@ function uploadItem(data,noOfDiv){
      <h1>
      ${data.price}
      </h1>
-     <button class="bid"><h1 class="hid">${data._id}</h1><h1 class="hid">${data.AuctionStartDate}</h1><h1 class="hid">${data.AuctionEndDate}</h1>${formattedDateTime>data.AuctionEndDate && data.ownersId === "loading..."?"find winner":"details"}</button>
+     <button class="bid"><h1 class="hid">${data._id}</h1><h1 class="hid">${data.AuctionStartDate}</h1><h1 class="hid">${data.AuctionEndDate}</h1>${formattedDateTime>data.AuctionEndDate && data.ownersId === "loading..."?"find winner": formattedDateTime<data.AuctionEndDate ? "Auction In Progress":formattedDateTime<data.AuctionStartDate ?"Auction Yet To Start":"details"}</button>
       
     <div class="sub_dit">
        <span>
