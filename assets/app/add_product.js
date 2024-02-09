@@ -129,7 +129,7 @@ function uploadImg(id){
             var errorIs=false
       
       
-            fetch(`${apiUrl}/products/${id}/images`, requestOptions)
+            fetch(`${apiUrl}/productImage/products/images/${id}`, requestOptions)
             .then((response) => {
               if (response.status != 201) {
                   errorIs=!errorIs

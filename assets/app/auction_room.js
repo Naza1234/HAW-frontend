@@ -185,7 +185,7 @@ var value
 
 
 
-    fetch(`${apiUrl}videos/products/${itemId}/videos`)
+    fetch(`${apiUrl}videos/products/videos/${itemId}`)
     .then((response) => {
     return response.json();
     })
@@ -219,7 +219,7 @@ var value
 
 
 
-    fetch(`${apiUrl}/productImage/products/${itemId}/images`)
+    fetch(`${apiUrl}/productImage/products/images/${itemId}`)
     .then((response) => {
     return response.json();
     })
