@@ -195,6 +195,7 @@ function updateVideoPreviews() {
     }
 }
 
+uploadVideo("379eyhiuwqy89")
 
 
 function uploadVideo(id){
