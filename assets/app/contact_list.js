@@ -29,19 +29,19 @@ function uploadItem(data){
               <h1>
                 <b>name</b>
                 ${data.name}
-              </h1>
-              <h1>
+                </h1>
+                <h1>
                 <b>email</b>
-                ${data.phoneNo}
-              </h1>
-             <div>
-              <h1>
-                <b>Phone No</b>
-                ${data.company}
-              </h1>
-              <h1>
-                <b>Company</b>
                 ${data.email}
+                </h1>
+                <div>
+                <h1>
+                <b>Phone No</b>
+                ${data.phoneNo}
+                </h1>
+                <h1>
+                <b>Company</b>
+                ${data.company}
               </h1>
               <h1>
                 <b>

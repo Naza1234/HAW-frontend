@@ -20,12 +20,8 @@ console.log(document.getElementsByClassName("items")[0]);
        data.reverse()
        for (let i = 0; i < data.length ; i++) {
         const element = data[i];
-          if(formattedDateTime>element.AuctionEndDate && element.AuctionStartDate < formattedDateTime){
             uploadItem(element,0)
-          }
-          if(formattedDateTime>element.AuctionStartDate){
-            uploadItem(element,0)
-          }
+          
        }
        document.getElementsByClassName("product_length")[0].getElementsByClassName("p_no")[0].innerHTML=`
        ${data.length} <b>/pro
@@ -102,7 +98,7 @@ function buttonClick(){
     var items=document.querySelectorAll(".item")
     for (let i = 0; i < items.length; i++) {
         const element = items[i];
-        var item=document.getElementsByClassName("hid")
+        var item=element.getElementsByClassName("hid")
         if (formattedDateTime>item[2].innerHTML) {
           element.classList.remove("hid")
         }else{
@@ -122,7 +118,7 @@ var buttons =document.querySelectorAll(".quick_nav span")
      var items=document.querySelectorAll(".item")
   for (let i = 0; i < items.length; i++) {
       const element = items[i];
-      var item=document.getElementsByClassName("hid")
+      var item=element.getElementsByClassName("hid")
       if (formattedDateTime>item[2].innerHTML) {
         element.classList.remove("hid")
       }else{
@@ -136,7 +132,7 @@ var buttons =document.querySelectorAll(".quick_nav span")
      var items=document.querySelectorAll(".item")
   for (let i = 0; i < items.length; i++) {
       const element = items[i];
-      var item=document.getElementsByClassName("hid")
+      var item=element.getElementsByClassName("hid")
       if (formattedDateTime>item[2].innerHTML) {
         element.classList.add("hid")
       }else{
