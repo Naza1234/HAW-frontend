@@ -165,6 +165,7 @@ function uploadItem(data){
           .then((data) => {
             // Handle the response data here
             fetchPopupData(id,document.getElementsByClassName("auction_room")[0])
+            document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
           })
           .catch((error) => {
             // Handle any errors
