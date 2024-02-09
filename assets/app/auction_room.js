@@ -151,6 +151,7 @@ function sendAuction(amount){
       if (data.length>0) {
         value=data[data.length-1].amount
       }
+
     }
     )
     .catch((error) => {
@@ -161,6 +162,7 @@ function sendAuction(amount){
   }
   
   function populatePopup(data){
+    document.getElementsByClassName("input")[0].classList.remove("active_parent_to_button")
     var container = document.getElementsByClassName("chart_ul")[0]
      var html=`
      <li class="${data.userId===userId?"me":""}">

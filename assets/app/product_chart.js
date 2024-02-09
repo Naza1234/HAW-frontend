@@ -120,7 +120,7 @@ function uploadItem(data){
   }
   
   function populatePopup(data){
-    document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
+    // document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
     var container = document.getElementsByClassName("chart_ul")[0]
      var html=`
      <li class="${data.userId===userId?"me":""}">
@@ -166,7 +166,7 @@ function uploadItem(data){
           .then((data) => {
             // Handle the response data here
             fetchPopupData(id,document.getElementsByClassName("auction_room")[0])
-            document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
+            document.getElementsByClassName("input")[0].classList.remove("active_parent_to_button")
           })
           .catch((error) => {
             // Handle any errors
