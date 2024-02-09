@@ -176,9 +176,9 @@ function sendAuction(amount){
     
     document.getElementsByClassName("runApproval_btn")[0].addEventListener("click",()=>{
         var parent=document.getElementsByClassName("input")[0]
-        parent.classList.add("active_parent_to_button")
         var input=parent.getElementsByTagName("input")[0].value
         if(input>value){
+          parent.classList.add("active_parent_to_button")
             const params={
              userId:userId,
              productId:id,
