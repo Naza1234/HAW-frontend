@@ -275,9 +275,11 @@ form[2].addEventListener("submit",(e)=>{
 
 
 
-      if (selectedFiles[i] === selectedFiles.length-1) {
-        uploadVideo(id)
-      }
+      Promise.all(fetchPromises)
+      .then(() => {
+          // All fetch requests are completed
+         Window.location=Window.location
+      });
 
         }
     })
