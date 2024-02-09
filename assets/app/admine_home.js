@@ -56,7 +56,7 @@ function uploadItem(data,noOfDiv){
      <h1>
      ${data.price}
      </h1>
-     <button class="bid"><h1 class="hid">${data._id}</h1><h1 class="hid">${data.AuctionStartDate}</h1><h1 class="hid">${data.AuctionEndDate}</h1>${formattedDateTime>data.AuctionEndDate?"find winner":"details"}</button>
+     <button class="bid"><h1 class="hid">${data._id}</h1><h1 class="hid">${data.AuctionStartDate}</h1><h1 class="hid">${data.AuctionEndDate}</h1>${formattedDateTime>data.AuctionEndDate && data.ownersId != "loading..."?"find winner":"details"}</button>
       
     <div class="sub_dit">
        <span>
@@ -103,7 +103,7 @@ function buttonClick(){
     for (let i = 0; i < items.length; i++) {
         const element = items[i];
         var item=document.getElementsByClassName("hid")
-        if (formattedDateTime>item[3].innerHTML) {
+        if (formattedDateTime>item[2].innerHTML) {
           element.classList.remove("hid")
         }else{
           element.classList.add("hid")
