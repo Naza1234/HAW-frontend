@@ -80,6 +80,7 @@ function uploadItem(data){
     `
     container.innerHTML=html
     buttonClick()
+    fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
  }
 
  function buttonClick(){
@@ -90,10 +91,47 @@ function uploadItem(data){
         element.addEventListener("click",(e)=>{
             var btn=e.target
             document.getElementsByClassName("auction_room")[0].classList.add("active_parent_to_button")
-            fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
+            var amount=btn.parentElement.getElementsByTagName("input")[0].value
+            sendAuction(amount)
+          
         })
     }
  }
+
+
+function sendAuction(amount){
+   const params={
+    userId:userId,
+  amount:amount,
+  productId:itemId
+   }
+       
+    
+   const requestOptions = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+      },
+     body: JSON.stringify(params),
+  };
+
+
+  fetch(`${apiUrl}/auction/auctions`, requestOptions)
+  .then((response) => {
+  
+    return response.json();
+  })
+  .then((data) => {
+    fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error('Error:', error);
+  
+  });
+}
+
+
 
 
 
@@ -101,7 +139,7 @@ function uploadItem(data){
 var value
  function fetchPopupData(id,parent){
     document.getElementsByClassName("chart_ul")[0].innerHTML=""
-    fetch(`${apiUrl}/auction/auctions/${id}`)
+    fetch(`${apiUrl}/auction/auctions/byId/${id}`)
     .then((response) => {
     return response.json();
     })

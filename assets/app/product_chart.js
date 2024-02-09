@@ -75,6 +75,7 @@ function uploadItem(data){
     `
     container.innerHTML=html
     buttonClick()
+    fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
  }
 
 
@@ -86,7 +87,9 @@ function uploadItem(data){
         element.addEventListener("click",(e)=>{
             var btn=e.target
             document.getElementsByClassName("auction_room")[0].classList.add("active_parent_to_button")
-            fetchPopupData(itemId,document.getElementsByClassName("auction_room")[0])
+              
+            sendMessage(itemId)
+          
         })
     }
  }
@@ -112,8 +115,7 @@ function uploadItem(data){
     .catch((error) => {
     console.error('Error:', error);
     });
-    
-    sendMessage(id)
+  
   }
   
   function populatePopup(data){
