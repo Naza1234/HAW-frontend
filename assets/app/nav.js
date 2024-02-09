@@ -1,6 +1,6 @@
 winUrl="https://equiauction.space"
-// apiUrl="https://haw-server.onrender.com"
-apiUrl="http://localhost:3000"
+apiUrl="https://haw-server.onrender.com"
+// apiUrl="http://localhost:3000"
 
 const userId=localStorage.getItem("HAWebsiteUserKey")
 // localStorage.removeItem("HAWebsiteUserKey")
