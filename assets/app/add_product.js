@@ -186,103 +186,82 @@ function updateVideoPreviews() {
 }
 
 
+function uploadVideo(id) {
+  form[1].parentElement.parentElement.classList.add("hid");
+  form[2].parentElement.parentElement.classList.remove("hid");
+  var h1 = document.querySelectorAll(".add_products .nav h1");
+  var hr = document.querySelectorAll(".add_products .nav hr");
+  h1[1].classList.remove("active");
+  h1[2].classList.add("active");
+  hr[0].classList.remove("active");
+  hr[1].classList.add("active");
 
-function uploadVideo(id){
-    form[1].parentElement.parentElement.classList.add("hid")
-    form[2].parentElement.parentElement.classList.remove("hid")
-    var h1=document.querySelectorAll(".add_products .nav h1")
-    var hr=document.querySelectorAll(".add_products .nav hr")
-    h1[1].classList.remove("active")
-    h1[2].classList.add("active")
-    hr[0].classList.remove("active")
-    hr[1].classList.add("active")
-    
-     
+  document.getElementsByClassName("addit")[0].addEventListener("click", () => {
+      if (inputs[12].value && inputs[13].files[0]) {
+          // Clear the previously selected files if needed
+          if (selectedVideoFiles.length === 10) {
+              selectedVideoFiles.pop(); // Remove the oldest file
+          }
 
-    document.getElementsByClassName("addit")[0].addEventListener("click",()=>{
-       if (inputs[12].value && inputs[13].files[0]) {
-                  // Clear the previously selected files if needed
-         if (selectedVideoFiles.length === 10) {
-        selectedVideoFiles.pop(); // Remove the oldest file
-        }
+          const params = {
+              productId: id,
+              name: inputs[12].value,
+              videoUrl: inputs[13].files[0],
+          };
+          selectedVideoFiles.unshift(params); // Add to the beginning of the array
+      }
 
-        const params={
-            productId:id,
-            name:inputs[12].value,
-            videoUrl:inputs[13].files[0],
-        }
-        selectedVideoFiles.unshift(params); // Add to the beginning of the array
+      // Update video previews with the latest selections
+      updateVideoPreviews();
+  });
 
-       }
-        
-       
-   
-    // Update image previews with the latest selections
-    updateVideoPreviews();
+  form[2].addEventListener("submit", (e) => {
+      e.preventDefault();
+      form[2].classList.add("active_parent_to_button");
+      const fetchPromises = []; // Define fetchPromises here
 
+      for (let i = 0; i < selectedVideoFiles.length; i++) {
+          const element = selectedVideoFiles[i];
 
+          const formData = new FormData();
+          formData.append("productId", id);
+          formData.append("name", element.name);
+          formData.append("video", element.videoUrl);
 
-
-    })
-
-
-
-form[2].addEventListener("submit",(e)=>{
-        e.preventDefault()
-        form[2].classList.add("active_parent_to_button")
-        for (let i = 0; i < selectedVideoFiles.length; i++) {
-            const element = selectedVideoFiles[i];
-            
-
-
-            const formData= new FormData()
-            formData.append("productId",id) 
-            formData.append("name",element.name) 
-            formData.append("video",element.videoUrl) 
-         
-            const requestOptions = {
+          const requestOptions = {
               method: 'POST',
-               body: formData,
-            };
-            var errorIs=false
-      
-      
-            fetch(`${apiUrl}/videos/videos`, requestOptions)
-            .then((response) => {
-              if (response.status != 201) {
-                  errorIs=!errorIs
-                // Handle the 400 Bad Request error
-                console.error('Bad Request Error:', response);
-              }
-              return response.json();
-            })
-            .then((data) => {
-              // Handle the response data here
-              if (errorIs) {
-                 
-              }else{
-                if (selectedVideoFiles[i] === selectedVideoFiles.length-1) {
-                   window.location=window.location   
-                  }
-            
-                
-              }
-            })
-            .catch((error) => {
-              // Handle any errors
-              console.error('Error:', error);
-      })
+              body: formData,
+          };
+          var errorIs = false;
 
-
+          fetchPromises.push(
+              fetch(`${apiUrl}/videos/videos`, requestOptions)
+                  .then((response) => {
+                      if (response.status != 201) {
+                          errorIs = !errorIs;
+                          console.error('Bad Request Error:', response);
+                      }
+                      return response.json();
+                  })
+                  .then((data) => {
+                      if (errorIs) {
+                          // Handle error
+                      } else {
+                          if (i === selectedVideoFiles.length - 1) {
+                              window.location.reload(); // Reload the page after uploading videos
+                          }
+                      }
+                  })
+                  .catch((error) => {
+                      console.error('Error:', error);
+                  })
+          );
+      }
 
       Promise.all(fetchPromises)
-      .then(() => {
-          // All fetch requests are completed
-         Window.location=Window.location
-      });
-
-        }
-    })
-
-
+          .then(() => {
+              // All fetch requests are completed
+              window.location.reload(); // Reload the page after uploading videos
+          });
+  });
 }
