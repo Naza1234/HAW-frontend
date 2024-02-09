@@ -110,48 +110,45 @@ function uploadImg(id){
     })
 
     
-    form[1].addEventListener("submit",(e)=>{
-        e.preventDefault()
-        form[1].classList.add("active_parent_to_button")
-     
-        for (let i = 0; i < selectedFiles.length; i++) {
-            const element = selectedFiles[i];
-            
+    form[1].addEventListener("submit", (e) => {
+      e.preventDefault();
+      form[1].classList.add("active_parent_to_button");
 
+      // Create an array to store all fetch promises
+      const fetchPromises = [];
 
-            const formData= new FormData()
-            formData.append("Image",element) 
-         
-            const requestOptions = {
+      for (let i = 0; i < selectedFiles.length; i++) {
+          const element = selectedFiles[i];
+
+          const formData = new FormData()
+          formData.append("Image", element)
+
+          const requestOptions = {
               method: 'POST',
-               body: formData,
-            };
-            var errorIs=false
-      
-      
-            fetch(`${apiUrl}/productImage/products/images/${id}`, requestOptions)
-            .then((response) => {
-              return response.json();
-            })
-            .then((data) => {
-              // Handle the response data here
-            
-                if (selectedFiles[i] === selectedFiles[selectedFiles.length-1]) {
-                    uploadVideo(id)
-                  }
-            
-              
-            })
-            .catch((error) => {
-              // Handle any errors
-              console.error('Error:', error);
-      })
+              body: formData,
+          };
 
+          // Push the fetch promise into the array
+          fetchPromises.push(
+              fetch(`${apiUrl}/productImage/products/images/${id}`, requestOptions)
+                  .then((response) => response.json())
+                  .then((data) => {
+                      // Handle the response data here
+                  })
+                  .catch((error) => {
+                      // Handle any errors
+                      console.error('Error:', error);
+                  })
+          );
+      }
 
-
-     
-        }
-    })
+      // Wait for all fetch requests to complete
+      Promise.all(fetchPromises)
+          .then(() => {
+              // All fetch requests are completed
+              uploadVideo(id);
+          });
+  });
 }
 
 
