@@ -120,6 +120,7 @@ function uploadItem(data){
   }
   
   function populatePopup(data){
+    document.getElementsByClassName("auction_room")[0].classList.remove("active_parent_to_button")
     var container = document.getElementsByClassName("chart_ul")[0]
      var html=`
      <li class="${data.userId===userId?"me":""}">
