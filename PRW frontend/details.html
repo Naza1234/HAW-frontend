@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/css.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>welcome</title>
+
+
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
+    <!-- 
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+</head>
+<body> 
+
+    <header class="header" data-header>
+
+        <div class="overlay" data-overlay></div>
+    
+       
+    
+        <div class="header-bottom">
+          <div class="container">
+    
+            <a href="#" class="logo">
+              <img src="./assets/images/logo.png" alt="Homeverse logo">
+            </a>
+    
+            <nav class="navbar" data-navbar>
+    
+              <div class="navbar-top">
+    
+                <a href="#" class="logo">
+                  <img src="./assets/images/logo.png" alt="Homeverse logo">
+                </a>
+    
+                <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+    
+              </div>
+    
+              <div class="navbar-bottom">
+                <ul class="navbar-list">
+    
+                  <li>
+                    <a href="./index.html" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="./index.html#about" class="navbar-link" data-nav-link>About</a>
+                  </li>
+    
+                  <li>
+                    <a href="./index.html#service" class="navbar-link" data-nav-link>Service</a>
+                  </li>
+    
+                  <li>
+                    <a href="./index.html#property" class="navbar-link" data-nav-link>Property</a>
+                  </li>
+    
+    
+                </ul>
+              </div>
+    
+            </nav>
+    
+            <div class="header-bottom-actions">
+    
+              <button class="header-bottom-actions-btn" aria-label="Search">
+                <ion-icon name="search-outline"></ion-icon>
+    
+                <span>Search</span>
+              </button>
+    
+              <!-- <button class="header-bottom-actions-btn" aria-label="Profile">
+                <ion-icon name="person-outline"></ion-icon>
+    
+                <span>Profile</span>
+              </button>
+    
+              <button class="header-bottom-actions-btn" aria-label="Cart">
+                <ion-icon name="cart-outline"></ion-icon>
+    
+                <span>Cart</span>
+              </button> -->
+    
+              <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+                <ion-icon name="menu-outline"></ion-icon>
+    
+                <span>Menu</span>
+              </button>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </header>
+    
+
+
+     <section class="details">
+
+
+
+        <section class="top">
+          
+        </section>
+ 
+     <section class="sub-det" >
+
+      
+     </section>
+   
+     </section>
+
+
+<form action="#" class="application_form" id="applicationForm">
+
+  <div class="application ">
+    <h1>start my application</h1>
+    <ul>
+      <li>takes less than 11 minutes</li>
+      <li>easy and relatable</li>
+      <li>no impact to credit score</li>
+    </ul>
+    <h2>what are you applying as?</h2>
+
+    <div class="applying_for">
+      <label for="tenant">
+        <input type="radio" id="tenant" name="applying_as" value="tenant" checked>
+        <div>Tenant</div>
+      </label>
+      <label for="cosigner">
+        <input type="radio" id="cosigner" name="applying_as" value="cosigner">
+        <div>Cosigner</div>
+      </label>
+    </div>
+    <br>
+
+    <label for="">
+      first name
+      <input type="text" name="first_name">
+    </label>
+    <label for="">
+      last name
+      <input type="text" name="last_name">
+    </label>
+    <label for="">
+      email
+      <input type="email" name="email">
+    </label>
+    <label for="">
+      phone number
+      <input type="number" name="phone_number">
+    </label>
+    <label for="">
+      date of birth
+      <input type="date" name="dob">
+    </label>
+    <button type="button" onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>Application info</h2>
+    <br>
+    <label for="">
+      date of birth
+      <input type="date" name="additional_dob">
+    </label>
+
+    <label for="">
+      <b>are there others applying with you (including CO-signers)</b>
+      all persons over 18 (including Co-signers) need to complete their own applications.
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="other_applying" value="yes"> yes
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="other_applying" value="no"> no
+      </label>
+    </label>
+
+    <label for="">
+      <b>how many people will be living in the property in total?</b>
+      make sure to count yourself, other tenants, and any dependents.
+      <input type="number" name="total_people">
+    </label>
+
+    <button type="button"  onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>residential history</h2>
+    <p>strengthen your application by providing your past rental history</p>
+    <br>
+
+    <label for="" class="add_label">
+      current address
+    </label>
+
+    <div class="sub_application">
+      <h2>add current address</h2>
+      <p>residence type</p>
+
+      <div class="applying_as">
+        <label for="as_tenant">
+          <input type="radio" id="as_tenant" name="history_as" value="as_tenant">
+          <div>Tenant</div>
+        </label>
+        <label for="owner">
+          <input type="radio" id="owner" name="history_as" value="owner">
+          <div>Owner</div>
+        </label>
+        <label for="other">
+          <input type="radio" id="other" name="history_as" value="other">
+          <div>other</div>
+        </label>
+      </div>
+
+      <label for="">
+        month and year moved in
+        <input type="month" name="move_in_date">
+      </label>
+      <label for="">
+        street address
+        <input type="text" name="street_address">
+      </label>
+      <label for="">
+        unit (optional)
+        <input type="text" name="unit">
+      </label>
+      <label for="">
+        city
+        <input type="text" name="city">
+      </label>
+      <label for="">
+        state
+        <input type="text" name="state">
+      </label>
+      <label for="">
+        zip code
+        <input type="text" name="zip_code">
+      </label>
+      <label for="">
+        monthly rent $
+        <input type="text" name="monthly_rent">
+      </label>
+
+      <h2>landlord contact info</h2>
+
+      <label for="">
+        full name
+        <input type="text" name="landlord_name">
+      </label>
+      <label for="">
+        email address
+        <input type="email" name="landlord_email">
+      </label>
+      <label for="">
+        phone number
+        <input type="text" name="landlord_phone">
+      </label>
+
+
+    </div>
+
+    <button type="button"  onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>employment</h2>
+    <p>show the landlord that you can afford this rental.</p>
+    <br>
+    <label for="" style="flex-direction: row; align-items: center;">
+      <input type="checkbox" name="employed" value="yes"  checked>
+      I'm currently employed
+    </label>
+
+    <label for="" class="add_label">
+      current employer
+    </label>
+
+    <div class="sub_application">
+      <h2>add current employer</h2>
+
+      <label for="">
+        employer
+        <input type="text" name="employer">
+      </label>
+      <label for="">
+        position/title/occupation
+        <input type="text" name="position">
+      </label>
+      <label for="">
+        month and year started
+        <input type="month" name="employment_start_date">
+      </label>
+      <label for="">
+        monthly income ($)
+        <input type="text" name="monthly_income">
+      </label>
+
+      <h2>employment reference</h2>
+
+      <label for="">
+        full name
+        <input type="text" name="reference_name">
+      </label>
+      <label for="">
+        phone number
+        <input type="text" name="reference_phone">
+      </label>
+    </div>
+
+    <button type="button" onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>other income</h2>
+    <br>
+    <label for="">
+      <b>are there others sources of income you would like to include?</b>
+      for example, social security, parental assistance scholarships, etc.
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="other_sources_of_income" value="yes"> yes
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="other_sources_of_income" value="no"> no
+      </label>
+    </label>
+
+    <label for="">
+      <h2>current bank / financial institution</h2>
+      for example, "wells fargo" or "navy federal credit union". if you don't have a bank account just enter "N/A"
+      <b>bank/financial institution name</b>
+      <input type="text" name="bank_name">
+    </label>
+
+    <button type="button"  onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>General Information</h2>
+    <br>
+    <label for="">
+      <b>Will you have an animal living with you at this property?</b>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="animal_living" value="yes"> yes
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="animal_living" value="no"> no
+      </label>
+    </label>
+    <label for="">
+      <b>Will you have a vehicle at this property?</b>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="vehicle" value="yes"> yes
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="vehicle" value="no"> no
+      </label>
+    </label>
+    <label for="">
+      <b>Do you smoke?</b>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="smoke" value="yes"> yes
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="smoke" value="outdoors_only"> outdoors only
+      </label>
+      <label style="flex-direction: row; align-items: center; margin-top: 0; height: fit-content;">
+        <input type="radio" name="smoke" value="no"> no
+      </label>
+    </label>
+    <label for="">
+      <b>Do you have any special requests or requirements we should be aware of?</b>
+      <textarea name="special_requests" id="" cols="30" rows="10"></textarea>
+    </label>
+
+    <button type="button"  onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>other Information</h2>
+    <p>Almost there - a few more questions</p>
+    <br>
+    <h2>emergency contact</h2>
+    <label for="">
+      full name
+      <input type="text" name="emergency_contact_name">
+    </label>
+    <label for="">
+      relation
+      <input type="text" name="emergency_contact_relation">
+    </label>
+    <label for="">
+      phone number
+      <input type="number" name="emergency_contact_phone">
+    </label>
+
+    <h2>additional comments</h2>
+    <label for="">
+      use this field to explain or comment on any aspect of your rental application.
+      <textarea name="additional_comments" id="" cols="30" rows="10"></textarea>
+    </label>
+
+    <button type="button"  onclick="showNextSection(this)">next</button>
+  </div>
+
+  <div class="application hid">
+    <h2>upload documents</h2>
+    <p>upload PDF, PNG and JPEG files up to a maximum size of 10mb</p>
+    <br>
+    <label for="">
+      <h2>photo id</h2>
+      must be government-issued e.g driver's license, passport, military ID, etc
+      <input type="file" name="photo_id" maxlength="2" style="border: none;">
+    </label>
+
+    <label for="">
+      <h2>proof of income</h2>
+      e.g paystub, bank statement, social security, etc.
+      <input type="file" name="proof_of_income" maxlength="2" style="border: none;">
+    </label>
+
+    <label for="">
+      <h2>other docs</h2>
+      include any other documents requested by the landlord
+      <input type="file" name="other_docs" maxlength="2" style="border: none;">
+    </label>
+    <br> <br>
+    <div class="g-recaptcha" data-sitekey="6Lf4lAIqAAAAAAHR5spWrNJOU0QT3-nseYiZ8ZST" style="align-self: center;"></div>
+    <button type="submit">submit application</button>
+  </div>
+</form>
+
+
+
+
+
+
+
+     <section class="property" id="property">
+        <div class="container">
+
+          <p class="section-subtitle">Properties</p>
+
+          <h2 class="h2 section-title">Featured Listings</h2>
+
+          <ul class="property-list has-scrollbar">
+
+          
+
+          </ul>
+
+        </div>
+      </section>
+
+
+    
+
+      <footer class="footer">
+
+        <div class="footer-top">
+          <div class="container">
+    
+            <div class="footer-brand">
+    
+              <a href="#" class="logo">
+                <img src="./assets/images/logo-light.png" alt="Homeverse logo">
+              </a>
+    
+              <p class="section-text">
+                Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.
+              </p>
+    
+              <ul class="contact-list">
+    
+                <li>
+                  <a href="#" class="contact-link">
+                    <ion-icon name="location-outline"></ion-icon>
+    
+                    <address>Brooklyn, New York, United States</address>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="contact-link">
+                    <ion-icon name="call-outline"></ion-icon>
+    
+                    <span>+0123-456789</span>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="mailto:contact@homeverse.com" class="contact-link">
+                    <ion-icon name="mail-outline"></ion-icon>
+    
+                    <span>contact@homeverse.com</span>
+                  </a>
+                </li>
+    
+              </ul>
+    
+              <ul class="social-list">
+    
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                  </a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+            <div class="footer-link-box">
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Company</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">About</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Blog</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">All Products</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Locations Map</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Services</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Terms & Conditions</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Promotional Offers</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Customer Care</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <div class="container">
+    
+            <p class="copyright">
+              &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+            </p>
+    
+          </div>
+        </div>
+    
+      </footer>
+    
+    
+    
+      <script src="./assets/js/script.js"></script>
+      <script src="./assets/js/details.js"></script>
+
+      <!-- 
+        - ionicon link
+      -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script>
+        function showNextSection(button) {
+            // Hide the current section
+            const currentSection = button.closest('.application');
+            currentSection.classList.add('hid');
+
+            // Show the next section
+            const nextSection = currentSection.nextElementSibling;
+            if (nextSection) {
+                nextSection.classList.remove('hid');
+            }
+        }
+       document.getElementsByTagName("form")[0].addEventListener("submit",(e)=>{
+        e.preventDefault()
+        logFormData()
+        document.getElementsByClassName("loading_body")[0].classList.remove("hid")
+       })
+        function logFormData() {
+            const form = document.getElementById('applicationForm');
+            const formData = new FormData(form);
+            formData.append('productId', itemId);
+            const entries = formData.entries();
+
+            console.log('Form Data:');
+            for (const [name, value] of entries) {
+                console.table(`${name}: ${value}`);
+            }
+
+            // Validate reCAPTCHA
+            if (grecaptcha.getResponse() === "") {
+                alert("Please complete the reCAPTCHA.");
+                return false;
+            }
+
+            
+  const requestProof = {
+      method: 'POST',
+      body: formData,
+  };
+  
+
+  
+  fetch(`${apiUrl}/application/applications`, requestProof)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+   console.log(data);
+   document.getElementsByClassName("loading_body")[0].classList.add("hid")
+   alert("application submitted successfully");
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error('Error:', error);
+  }); 
+        }
+    </script>
+   <section class="loading_body">
+    <div class="loader">
+      
+    </div>
+   </section>
+</body>
+</html>

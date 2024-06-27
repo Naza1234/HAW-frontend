@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display API Response</title>
+</head>
+<body>
+  <div id="responseContainer"></div>
+
+  <script>
+    const apiResponse = {
+      "productId": "6622a2bbd920e6e668c2fe71",
+      "applying_as": "tenant",
+      "first_name": "Ozurumba ",
+      "last_name": "Chibuike ",
+      "phone_number": "658",
+      "dob": "2024-06-27T00:00:00.000Z",
+      "additional_dob": "2024-06-11T00:00:00.000Z",
+      "other_applying": "no",
+      "total_people": 67,
+      "history_as": "owner",
+      "move_in_date": "2024-07",
+      "street_address": "lag",
+      "unit": "4",
+      "city": "port  harcourt",
+      "state": "river start",
+      "zip_code": "2554",
+      "monthly_rent": 4000,
+      "landlord_name": "mark",
+      "landlord_email": "ochhh@gmail.com",
+      "landlord_phone": "02893267",
+      "employer": "den",
+      "position": "mark",
+      "employment_start_date": "2024-08",
+      "monthly_income": 2000,
+      "reference_name": "sdgbjkwsdb",
+      "reference_phone": "2019789217",
+      "other_sources_of_income": "no",
+      "bank_name": "j,hsdbafkje",
+      "animal_living": "yes",
+      "vehicle": "yes",
+      "smoke": "yes",
+      "special_requests": "dthgxgc",
+      "emergency_contact_name": "dfkabkisdulfhb",
+      "emergency_contact_relation": "done agine",
+      "emergency_contact_phone": "659758",
+      "additional_comments": "tfhdytrdhg",
+      "photo_id": "image\\1719493899349.JPG",
+      "proof_of_income": "image\\1719493899430.JPG",
+      "other_docs": "image\\1719493899451.png",
+      "_id": "667d650b810de1aca22b27c7",
+      "__v": 0
+    };
+
+    const container = document.getElementById('responseContainer');
+
+    for (const [key, value] of Object.entries(apiResponse)) {
+      const itemDiv = document.createElement('div');
+      itemDiv.innerHTML = `<strong>${key}:</strong> ${value}`;
+      container.appendChild(itemDiv);
+    }
+  </script>
+</body>
+</html>
